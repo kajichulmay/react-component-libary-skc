@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 import CardDetail from "./CardDetail";
 
-import "./CardDetail.css";
+import "./CardDetail.scss";
 
 const cardData = {
   title: "My Card Title",
