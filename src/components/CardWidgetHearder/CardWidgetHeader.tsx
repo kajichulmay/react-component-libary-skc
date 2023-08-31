@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Card, CardBody } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardWidgetHeader.scss";
-import { ChevronUp } from "react-bootstrap-icons";
+import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
 
 interface CardWidgetHeaderProps {
   data: { icon: string; title: string; value: number; percentage: number };
@@ -56,11 +56,13 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
           >
             {data?.value?.toLocaleString() ?? "-"}
             {/* <i className="mdi mdi-chevron-up ms-1 text-success" /> */}
-            <ChevronUp
-              style={{ marginLeft: 8 }}
-              color={data?.percentage > 0 ? "#34C38F" : data?.percentage < 0 ? "#F46A6A" : "#FAAF41"}
-              size={16}
-            />
+            {data?.percentage > 0 ? (
+              <ChevronUp style={{ marginLeft: 8 }} color={"#34C38F"} size={16} />
+            ) : data?.percentage < 0 ? (
+              <ChevronDown style={{ marginLeft: 8 }} color={"#F46A6A"} size={16} />
+            ) : (
+              ""
+            )}
           </h4>
           <div className="d-flex">
             <span
@@ -78,6 +80,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
                 fontSize: 13,
                 fontWeight: 400,
                 color: "#79829C",
+                fontFamily: "Kanit",
               }}
             >
               {filterType === "year"
