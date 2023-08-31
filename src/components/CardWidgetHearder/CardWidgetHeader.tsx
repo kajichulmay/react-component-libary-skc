@@ -8,10 +8,11 @@ interface CardWidgetHeaderProps {
   data: { icon: string; title: string; value: number; percentage: number };
   filterType: "year" | "month" | "week";
   showCharts?: boolean;
+  fontStyle?: { fontFamily: string; fontSize: number };
 }
 
 function CardWidgetHeader(props: CardWidgetHeaderProps) {
-  const { data, filterType, showCharts = false } = props;
+  const { data, filterType, showCharts = false, fontStyle = { fontFamily: "Kanit", fontSize: 14 } } = props;
 
   return (
     <Card
@@ -35,9 +36,10 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
           <h5
             className="mb-0"
             style={{
-              fontSize: 14,
-              fontWeight: 500,
+              fontWeight: 600,
               color: "#495057",
+              fontFamily: fontStyle.fontFamily,
+              fontSize: fontStyle.fontSize,
             }}
           >
             {data?.title ?? "-"}
