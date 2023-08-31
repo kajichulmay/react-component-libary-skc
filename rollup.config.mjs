@@ -6,6 +6,7 @@ import { dts } from "rollup-plugin-dts";
 import packageJson from "./package.json" assert { type: "json" };
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
+
 export default [
   {
     input: "src/index.ts",
@@ -27,6 +28,14 @@ export default [
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
-    external: [/\.css$/, { react: "react", "react-dom": "react-dom", "prop-types": "prop-types" }],
+    external: [
+      /\.css$/,
+      /\.scss$/,
+      { react: "react", "react-dom": "react-dom", "prop-types": "prop-types" },
+      /^reactstrap[.]*/,
+      /^antd[.]*/,
+      /^react-apexcharts[.]*/,
+      /^apexcharts[.]*/,
+    ],
   },
 ];
