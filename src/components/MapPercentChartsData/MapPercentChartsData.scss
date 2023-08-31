@@ -1,0 +1,456 @@
+.div-map-all {
+  // display: flex;
+  // height: 700px;
+  // margin-top: 40px;
+
+  // position: absolute;
+  // width: 100%;
+  // height: 100%;
+  // position: relative;
+  // outline: 2px red solid;
+
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: white;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+.div-map-la {
+  //    background: red;
+  // padding: 20px;
+  // max-width: 100%!important;
+  // height: auto;
+  // display: block;
+
+  //  z-index: 1;
+  // position: relative;
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: black;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.div-map-kh {
+  // position: relative;
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: black;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.data-table {
+  margin-top: 40px;
+  // outline: 2px red solid;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container-header {
+    display: flex;
+    align-items: center;
+    // outline: 2px red solid;
+    border-bottom: 2px solid #b6b6b673;
+    padding-bottom: 16px;
+    .title {
+      font-family: "Kanit";
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+    }
+    .container-percent-data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .group-percent {
+        display: flex;
+        align-items: center;
+        .box-data-0 {
+          width: 20px;
+          height: 12px;
+          background: #eaebea;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .title-percent {
+          font-family: "Inter";
+          font-weight: 500;
+          font-size: 14px;
+          // height: 12px;
+        }
+        .box-data-25 {
+          width: 20px;
+          height: 12px;
+          background: #b2e8cb;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-50 {
+          width: 20px;
+          height: 12px;
+          background: #5cd295;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-75 {
+          width: 20px;
+          height: 12px;
+          background: #1abf69;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-100 {
+          width: 20px;
+          height: 12px;
+          background: #17834a;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+      }
+      // outline: 2px red solid;
+    }
+  }
+  .row-data-drone-table {
+    padding: 16px;
+    border-bottom: 1px solid #b6b6b673;
+    .title-name {
+      font-family: "Kanit";
+      font-weight: 400;
+      font-size: 14px;
+      color: #495057;
+    }
+    .progress-bar {
+      height: 14px;
+    }
+    .data {
+      font-family: "Inter";
+      font-weight: 500;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    .unit {
+      font-family: "Kanit";
+      font-weight: 400;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    .percent-box {
+      margin-left: 8px;
+      width: 66px;
+      min-width: 60px;
+      text-align: center;
+
+      color: #34c38f;
+      background: #daf4eb;
+      font-family: "Inter";
+      font-weight: 600;
+      font-size: 11px;
+      padding: 3px;
+      border-radius: 4px;
+    }
+  }
+  .row-data-drone-table:hover {
+    background: #f5f5f8;
+    .title-name {
+      font-weight: 600;
+    }
+  }
+}
+.div-map-all {
+  // display: flex;
+  // height: 700px;
+  // margin-top: 40px;
+
+  // position: absolute;
+  // width: 100%;
+  // height: 100%;
+  // position: relative;
+  // outline: 2px red solid;
+
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: white;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+.div-map-la {
+  //    background: red;
+  // padding: 20px;
+  // max-width: 100%!important;
+  // height: auto;
+  // display: block;
+
+  //  z-index: 1;
+  // position: relative;
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: black;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.div-map-kh {
+  // position: relative;
+  svg path[fill^="none"] {
+    stroke-width: 0px;
+  }
+  svg path {
+    stroke-width: 0.5px;
+
+    //   fill-opacity:0.8;
+    //   stroke-opacity:0.9;
+    //   fill:purple;
+    stroke: black;
+  }
+  text {
+    fill: black;
+    font-family: "Kanit";
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  svg path:hover {
+    // fill:red;
+    stroke: white;
+    stroke-width: 3px;
+    &:hover {
+      -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.data-table {
+  margin-top: 40px;
+  // outline: 2px red solid;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container-header {
+    display: flex;
+    align-items: center;
+    // outline: 2px red solid;
+    border-bottom: 2px solid #b6b6b673;
+    padding-bottom: 16px;
+    .title {
+      font-family: "Kanit";
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+    }
+    .container-percent-data {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .group-percent {
+        display: flex;
+        align-items: center;
+        .box-data-0 {
+          width: 20px;
+          height: 12px;
+          background: #eaebea;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .title-percent {
+          font-family: "Inter";
+          font-weight: 500;
+          font-size: 14px;
+          // height: 12px;
+        }
+        .box-data-25 {
+          width: 20px;
+          height: 12px;
+          background: #b2e8cb;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-50 {
+          width: 20px;
+          height: 12px;
+          background: #5cd295;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-75 {
+          width: 20px;
+          height: 12px;
+          background: #1abf69;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+        .box-data-100 {
+          width: 20px;
+          height: 12px;
+          background: #17834a;
+          border-radius: 2px;
+          margin-right: 8px;
+        }
+      }
+      // outline: 2px red solid;
+    }
+  }
+  .row-data-drone-table {
+    padding: 16px;
+    border-bottom: 1px solid #b6b6b673;
+    .title-name {
+      font-family: "Kanit";
+      font-weight: 400;
+      font-size: 14px;
+      color: #495057;
+    }
+    .progress-bar {
+      height: 14px;
+    }
+    .data {
+      font-family: "Inter";
+      font-weight: 500;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    .unit {
+      font-family: "Kanit";
+      font-weight: 400;
+      font-size: 14px;
+      margin-left: 8px;
+    }
+    .percent-box {
+      margin-left: 8px;
+      width: 66px;
+      min-width: 60px;
+      text-align: center;
+
+      color: #34c38f;
+      background: #daf4eb;
+      font-family: "Inter";
+      font-weight: 600;
+      font-size: 11px;
+      padding: 3px;
+      border-radius: 4px;
+    }
+  }
+  .row-data-drone-table:hover {
+    background: #f5f5f8;
+    .title-name {
+      font-weight: 600;
+    }
+  }
+}

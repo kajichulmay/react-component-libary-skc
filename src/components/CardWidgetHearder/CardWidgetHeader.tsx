@@ -52,6 +52,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
               fontWeight: 700,
               fontFamily: "Inter",
               color: "#495057",
+              // marginLeft: 48,
             }}
           >
             {data?.value?.toLocaleString() ?? "-"}
@@ -64,7 +65,14 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
               ""
             )}
           </h4>
-          <div className="d-flex">
+          <div
+            className="d-flex"
+            style={
+              {
+                // marginLeft: 48
+              }
+            }
+          >
             <span
               className="box-percent"
               style={{
