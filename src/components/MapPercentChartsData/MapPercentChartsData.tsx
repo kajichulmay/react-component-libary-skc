@@ -3,13 +3,12 @@ import { Row, Col, Progress } from "reactstrap";
 
 import { Chart } from "react-google-charts";
 import { Dropdown } from "antd";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./MapPercentChartsData.scss";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import ProgressBarPercent from "./ProgressBarPercent";
 import sortIcon from "../../assets/icons/sort.png";
-
 interface MapPercentChartsDataProps {
   filter: any;
   dataMap: any[];
@@ -19,21 +18,6 @@ interface MapPercentChartsDataProps {
   tabData: string;
   percentChart: any[];
 }
-
-// const menuDropDawnitems = [
-//   {
-//     label: "ตัวอักษร",
-//     key: "1",
-//   },
-//   {
-//     label: "จำนวนมากที่สุด",
-//     key: "2",
-//   },
-//   {
-//     label: "จำนวนน้อยที่สุด",
-//     key: "3",
-//   },
-// ];
 
 const MapALL = ({ data = [] }: any) => {
   const options: any = {
