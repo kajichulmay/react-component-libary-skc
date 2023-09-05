@@ -6,6 +6,7 @@ import { dts } from "rollup-plugin-dts";
 import packageJson from "./package.json" assert { type: "json" };
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
+import image from "@rollup/plugin-image";
 
 export default [
   {
@@ -22,7 +23,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [resolve(), commonjs(), typescript({ tsconfig: "./tsconfig.json" }), postcss(), terser()],
+    plugins: [resolve(), commonjs(), typescript({ tsconfig: "./tsconfig.json" }), postcss(), terser(), image()],
   },
   {
     input: "dist/esm/types/index.d.ts",
@@ -31,7 +32,9 @@ export default [
     external: [
       /\.css$/,
       /\.scss$/,
-      { react: "react", "react-dom": "react-dom", "prop-types": "prop-types" },
+      "react",
+      "react-dom",
+      "prop-types",
       /^reactstrap[.]*/,
       /^antd[.]*/,
       /^react-apexcharts[.]*/,

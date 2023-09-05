@@ -1,10 +1,10 @@
 import React from "react";
 
 function ProgressBarPercent(props: any) {
-  const { color, data, unit, percent, tab } = props;
+  const { color = "", data = 0, unit = "", percent = 0, tab = "", typeNotSpecified = false } = props;
 
   const setDataFromTab = () => {
-    let newData;
+    let newData = 0;
     if (tab === "drone" || tab === "amount_working") {
       newData = parseInt(data);
 
@@ -19,8 +19,8 @@ function ProgressBarPercent(props: any) {
     <div style={{ display: "flex", alignItems: "center" }}>
       <div className="progress-bar" style={{ background: color, width: `${percent}%` }}></div>
       <p className="data">{setDataFromTab()}</p>
-      <p className="unit">{unit}</p>
-      <div className="percent-box">{percent} %</div>
+      <p className="unit">{unit ?? "-"}</p>
+      <div className={`${typeNotSpecified ? "percent-not-specified-box" : "percent-box"}`}>{percent} %</div>
     </div>
   );
 }
