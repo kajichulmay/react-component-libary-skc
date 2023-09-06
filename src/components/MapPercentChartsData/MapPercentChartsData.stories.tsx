@@ -687,37 +687,18 @@ const percentChart = [
   },
 ];
 
-const menuDropDawnitems = [
-  {
-    label: "ตัวอักษร",
-    key: "1",
-  },
-  {
-    label: "จำนวนมากที่สุด",
-    key: "2",
-  },
-  {
-    label: "จำนวนน้อยที่สุด",
-    key: "3",
-  },
-];
 const color = ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"];
 const color2 = ["#F5F1EF", "#F05A28", "#FF2020", "#F1B44C", "#506EFE"];
 
-const onSort = (e: any) => {
-  console.log("e :>> ", e);
-};
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const mapAll: Story = {
   args: {
     title: "ชั่วโมงการทำงานทั้งหมด",
     data: provinceData,
     country: "all",
-    tabData: "fly_hour",
     percentChart: percentChart,
     unit: "ชม",
-    menuSort: menuDropDawnitems,
-    onSort: onSort,
+
     colorsPercent: color,
   },
 };
@@ -726,10 +707,8 @@ export const mapTh: Story = {
     title: "ชั่วโมงการทำงานทั้งหมด",
     data: provinceData,
     country: "th",
-    tabData: "fly_hour",
     percentChart: percentChart,
     unit: "ชม",
-    menuSort: menuDropDawnitems,
     colorsPercent: color2,
   },
 };
@@ -755,39 +734,9 @@ export const mapLA: Story = {
       },
     ],
     country: "la",
-    tabData: "fly_hour",
+
     percentChart: percentChart,
     unit: "ชม",
-    menuSort: menuDropDawnitems,
     colorsPercent: color,
-  },
-};
-export const mapKH: Story = {
-  args: {
-    title: "ชั่วโมงการทำงานทั้งหมด",
-    data: [
-      {
-        id: "54460c00-87db-4020-9be1-b33ef3a01db3",
-        prov_name_th: "กัมพูชา",
-        code_jvector: "KH",
-        total: 0,
-        percent: "0",
-        v: 0,
-      },
-      {
-        id: "other",
-        prov_name_th: "ไม่ระบุ",
-        code_jvector: "TH-XX",
-        total: 111,
-        percent: "25.81",
-        v: 4,
-      },
-    ],
-    country: "kh",
-    tabData: "fly_hour",
-    percentChart: percentChart,
-    unit: "ชม",
-    menuSort: menuDropDawnitems,
-    colorsPercent: color2,
   },
 };

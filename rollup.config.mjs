@@ -7,7 +7,7 @@ import packageJson from "./package.json" assert { type: "json" };
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
 import image from "@rollup/plugin-image";
-
+import external from "rollup-plugin-peer-deps-external";
 export default [
   {
     input: "src/index.ts",
@@ -16,19 +16,35 @@ export default [
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
       },
       {
         file: packageJson.module,
         format: "esm",
         sourcemap: true,
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
       },
     ],
-    plugins: [resolve(), commonjs(), typescript({ tsconfig: "./tsconfig.json" }), postcss(), terser(), image()],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      postcss(),
+      terser(),
+      image(),
+      external(),
+    ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    plugins: [dts(), external()],
     external: [
       /\.css$/,
       /\.scss$/,
@@ -39,6 +55,7 @@ export default [
       /^antd[.]*/,
       /^react-apexcharts[.]*/,
       /^apexcharts[.]*/,
+      /^react-google-charts[.]*/,
     ],
   },
 ];

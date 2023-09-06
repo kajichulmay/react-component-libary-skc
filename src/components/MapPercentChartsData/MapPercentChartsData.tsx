@@ -14,11 +14,8 @@ interface MapPercentChartsDataProps {
   data: any[];
   title: string;
   unit: string;
-  tabData: string;
   percentChart: any[];
-  colorsPercent: string[];
-  onSort: (e: any) => void;
-  menuSort: any[];
+  colorsPercent?: string[];
 }
 
 const menuDropDawnitems = [
@@ -42,26 +39,24 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
     title = "",
     percentChart = [],
     unit = "",
-    tabData = "",
-    colorsPercent,
-    onSort,
-    menuSort = [],
+    colorsPercent = ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"],
   } = props;
 
-  // const [dataOpen, setDataOpen] = useState<boolean>(false);
-  let sortDataMap: any = [];
-
-  // const [sortTab, setSortTab] = useState<string>("0");
-  // const [sortData, setSortData] = useState<any[]>([]);
+  const [sortTab, setSortTab] = useState<string>("0");
+  const [sortData, setSortData] = useState<any[]>([]);
 
   const handleMenuClick = (e: any) => {
-    console.log("e :>> ", e);
-
-    // setDataToTableBySort(e.key);
-    onSort(e);
+    setSortTab(e.key);
   };
 
-  const setDataToTableBySort = (sortTab: string) => {
+  useEffect(() => {
+    setDataToTableBySort();
+  }, []);
+  useEffect(() => {
+    setDataToTableBySort();
+  }, [sortTab]);
+
+  const setDataToTableBySort = () => {
     const newDataSort: any[] = [];
 
     if (data?.length > 0) {
@@ -71,8 +66,8 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
         const sliceDataSort =
           data?.filter((item: any) => item?.prov_name_th !== "ลาว" && item?.prov_name_th !== "กัมพูชา") ?? [];
         newDataSort?.push(...sliceDataCountry, ...sliceDataSort);
-        // setSortData(newDataSort);
-        sortDataMap = newDataSort;
+        setSortData(newDataSort);
+        // sortDataMap = newDataSort;
       }
 
       if (sortTab === "1" && (country === "all" || country === "th")) {
@@ -86,11 +81,11 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
           const sortData = [...sliceDataSort]?.sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th"));
 
           newDataSort.push(...sliceDataCountry, ...sortData);
-          // setSortData(newDataSort);
-          sortDataMap = newDataSort;
+          setSortData(newDataSort);
+          // sortDataMap = newDataSort;
         } else {
-          // setSortData([...data].sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th")));
-          sortDataMap = [...data].sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th"));
+          setSortData([...data].sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th")));
+          // sortDataMap = [...data].sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th"));
         }
       } else if (sortTab == "2" && (country === "all" || country === "th")) {
         if (country === "all") {
@@ -103,11 +98,11 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
 
           const sortDataMax = sliceDataSort.sort((a: any, b: any) => b.total - a.total);
           newDataSort.push(...sliceDataCountry, ...sortDataMax);
-          // setSortData(newDataSort);
-          sortDataMap = newDataSort;
+          setSortData(newDataSort);
+          // sortDataMap = newDataSort;
         } else {
-          // setSortData([...data]?.sort((a, b) => b.total - a.total));
-          sortDataMap = [...data]?.sort((a, b) => b.total - a.total);
+          setSortData([...data]?.sort((a, b) => b.total - a.total));
+          // sortDataMap = [...data]?.sort((a, b) => b.total - a.total);
         }
       } else if (sortTab == "3" && (country === "all" || country === "th")) {
         if (country === "all") {
@@ -120,16 +115,16 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
           const sortDataMin = sliceDataSort.sort((a: any, b: any) => a.total - b.total);
           newDataSort.push(...sliceDataCountry, ...sortDataMin);
 
-          // setSortData(newDataSort);
-          sortDataMap = newDataSort;
+          setSortData(newDataSort);
+          // sortDataMap = newDataSort;
         } else {
-          // setSortData([...data]?.sort((a, b) => a.total - b.total));
-          sortDataMap = [...data]?.sort((a, b) => a.total - b.total);
+          setSortData([...data]?.sort((a, b) => a.total - b.total));
+          // sortDataMap = [...data]?.sort((a, b) => a.total - b.total);
         }
       }
     } else {
-      // setSortData(newDataSort);
-      sortDataMap = newDataSort;
+      setSortData(newDataSort);
+      // sortDataMap = newDataSort;
     }
   };
 
@@ -170,29 +165,28 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
                   {"> " + percentChart?.[4]?.min}% - {percentChart?.[4]?.max}%
                 </div>
               </div>
-              {menuSort.length > 0 && (
-                <div className="group-percent">
-                  <Dropdown
-                    menu={{
-                      items: menuSort,
-                      onClick: handleMenuClick,
-                    }}
-                    placement="bottomLeft"
-                  >
-                    <a onClick={e => e.preventDefault()}>
-                      <img src={sortIcon} alt="sortIcon" height="26" />
-                    </a>
-                  </Dropdown>
-                </div>
-              )}
+
+              <div className="group-percent">
+                <Dropdown
+                  menu={{
+                    items: menuDropDawnitems,
+                    onClick: handleMenuClick,
+                  }}
+                  placement="bottomLeft"
+                >
+                  <a onClick={e => e.preventDefault()}>
+                    <img src={sortIcon} alt="sortIcon" height="26" />
+                  </a>
+                </Dropdown>
+              </div>
             </div>
           </Col>
         </Row>
         <Row>
           <PerfectScrollbar style={{ height: "500px" }}>
-            {data?.length > 0 ? (
+            {sortData?.length > 0 ? (
               <>
-                {data?.map((item, index) => {
+                {sortData?.map((item, index) => {
                   let percentColor = "";
                   if (item?.prov_name_th === "ไม่ระบุ") {
                     percentColor = "#D6DDE4";
@@ -218,7 +212,6 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
                           percent={item?.percent}
                           color={percentColor}
                           unit={unit}
-                          tab={tabData}
                           typeNotSpecified={item?.prov_name_th === "ไม่ระบุ" ? true : false}
                         />
                       </Col>
