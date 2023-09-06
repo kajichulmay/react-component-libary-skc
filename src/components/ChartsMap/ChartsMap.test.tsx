@@ -726,10 +726,11 @@ const mapData = [
   ],
 ];
 
-const filter = { country: "all" };
+const color1 = ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"];
+const value = [0, 1, 2, 3, 4];
 
 describe("ChartsMap Component", () => {
   test("renders the ChartsMap component", () => {
-    render(<ChartsMap />);
+    render(<ChartsMap data={mapData} country="all" colorsMaps={color1} valueColorMaps={value} />);
   });
 });

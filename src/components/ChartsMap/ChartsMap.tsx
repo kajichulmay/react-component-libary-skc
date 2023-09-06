@@ -2,19 +2,28 @@ import React, { Component, useState, useEffect } from "react";
 import { Row, Col, Progress } from "reactstrap";
 
 import { Chart } from "react-google-charts";
-import { Dropdown } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ChartsMap.scss";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import "react-perfect-scrollbar/dist/css/styles.css";
 
-const MapALL = ({ data = [] }: any) => {
+interface ChartsMapProps {
+  country: string;
+  data: any[];
+  colorsMaps: string[];
+  valueColorMaps: number[];
+}
+
+interface MapProps {
+  data: any[];
+  colors: string[];
+  values: number[];
+}
+const MapALL = ({ data, colors, values }: MapProps) => {
   const options: any = {
     region: "TH",
     displayMode: "regions",
     resolution: "provinces",
 
-    colorAxis: { colors: ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"], values: [0, 1, 2, 3, 4] },
+    colorAxis: { colors: colors, values: values },
 
     backgroundColor: {
       fill: "transparent",
@@ -39,11 +48,7 @@ const MapALL = ({ data = [] }: any) => {
       chartEvents={[
         {
           eventName: "select",
-          callback: ({ chartWrapper }) => {
-            // const chart = chartWrapper.getChart();
-            // const selection = chart.getSelection();
-            // const region = data[selection[0].row + 1];
-          },
+          callback: ({ chartWrapper }) => {},
         },
       ]}
       data={data}
@@ -55,13 +60,11 @@ const MapALL = ({ data = [] }: any) => {
   );
 };
 
-const MapLA = ({ data = [] }: any) => {
+const MapLA = ({ data, colors, values }: MapProps) => {
   const options: any = {
     region: "LA",
-    // displayMode: "regions",
-    // resolution: "provinces",
     defaultColor: "transparent",
-    colorAxis: { colors: ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"], values: [0, 1, 2, 3, 4] },
+    colorAxis: { colors: colors, values: values },
 
     backgroundColor: {
       fill: "transparent",
@@ -85,12 +88,7 @@ const MapLA = ({ data = [] }: any) => {
       chartEvents={[
         {
           eventName: "select",
-          callback: ({ chartWrapper }) => {
-            // const chart = chartWrapper.getChart();
-            // const selection = chart.getSelection();
-            // const region = data[selection[0].row + 1];
-            // console.log("Selected : " + region);
-          },
+          callback: ({ chartWrapper }) => {},
         },
       ]}
       chartType="GeoChart"
@@ -102,13 +100,11 @@ const MapLA = ({ data = [] }: any) => {
   );
 };
 
-const MapKH = ({ data = [] }: any) => {
+const MapKH = ({ data, colors, values }: MapProps) => {
   const options: any = {
     region: "KH",
-    // displayMode: "regions",
-    // resolution: "provinces",
     defaultColor: "transparent",
-    colorAxis: { colors: ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"], values: [0, 1, 2, 3, 4] },
+    colorAxis: { colors: colors, values: values },
 
     backgroundColor: {
       fill: "transparent",
@@ -132,12 +128,7 @@ const MapKH = ({ data = [] }: any) => {
       chartEvents={[
         {
           eventName: "select",
-          callback: ({ chartWrapper }) => {
-            // const chart = chartWrapper.getChart();
-            // const selection = chart.getSelection();
-            // const region = data[selection[0].row + 1];
-            // console.log("Selected : " + region);
-          },
+          callback: ({ chartWrapper }) => {},
         },
       ]}
       chartType="GeoChart"
@@ -149,8 +140,41 @@ const MapKH = ({ data = [] }: any) => {
   );
 };
 
-const ChartsMap = () => {
-  return <div>ChartsMap</div>;
+const ChartsMap = (props: ChartsMapProps) => {
+  const {
+    country,
+    data,
+    colorsMaps = ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"],
+    valueColorMaps = [0, 1, 2, 3, 4],
+  } = props;
+  console.log("country :>> ", country, country === "th");
+  return (
+    <Row>
+      <Col xl={12}>
+        {country === "all" || country === "th" ? (
+          <div className="div-map-all">
+            <MapALL data={data} colors={colorsMaps} values={valueColorMaps}></MapALL>
+          </div>
+        ) : (
+          <></>
+        )}
+        {country === "la" ? (
+          <div className="div-map-la">
+            <MapLA data={data} colors={colorsMaps} values={valueColorMaps}></MapLA>
+          </div>
+        ) : (
+          <></>
+        )}
+        {country === "kh" ? (
+          <div className="div-map-kh">
+            <MapKH data={data} colors={colorsMaps} values={valueColorMaps}></MapKH>
+          </div>
+        ) : (
+          <></>
+        )}
+      </Col>
+    </Row>
+  );
 };
 
 export default ChartsMap;
