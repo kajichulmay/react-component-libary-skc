@@ -147,7 +147,7 @@ const ChartsMap = (props: ChartsMapProps) => {
     colorsMaps = ["#EAEBEA", "#B2E8CB", "#5CD295", "#1ABF69", "#17834A"],
     valueColorMaps = [0, 1, 2, 3, 4],
   } = props;
-  console.log("country :>> ", country, country === "th");
+
   return (
     <Row>
       <Col xl={12}>
