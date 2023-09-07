@@ -1,8 +1,7 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
 import "./CardDetail.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import "../../styles/custom.scss";
 interface CardDetailProps {
   data: { title: string; total: number; unit: string };
   colorCard: string;

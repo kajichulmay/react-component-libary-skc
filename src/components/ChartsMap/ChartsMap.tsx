@@ -1,10 +1,9 @@
-import React, { Component, useState, useEffect } from "react";
-import { Row, Col, Progress } from "reactstrap";
+import React from "react";
+import { Row, Col } from "reactstrap";
 
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./ChartsMap.scss";
-
+import "../../styles/custom.scss";
 interface ChartsMapProps {
   country: string;
   data: any[];

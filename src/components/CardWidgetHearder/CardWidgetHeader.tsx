@@ -1,8 +1,8 @@
 import React from "react";
-import { Col, Card, CardBody } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, CardBody } from "reactstrap";
 import "./CardWidgetHeader.scss";
 import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
+import "../../styles/custom.scss";
 
 interface CardWidgetHeaderProps {
   data: { icon: string; title: string; value: number; percentage: number };

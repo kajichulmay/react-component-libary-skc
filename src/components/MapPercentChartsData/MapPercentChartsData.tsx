@@ -1,14 +1,13 @@
 import React, { Component, useState, useEffect } from "react";
 import { Row, Col, Progress } from "reactstrap";
 
-import { Chart } from "react-google-charts";
 import { Dropdown } from "antd";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./MapPercentChartsData.scss";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import ProgressBarPercent from "./ProgressBarPercent";
 import sortIcon from "../../assets/icons/sort.png";
+import "../../styles/custom.scss";
 interface MapPercentChartsDataProps {
   country: string;
   data: any[];
