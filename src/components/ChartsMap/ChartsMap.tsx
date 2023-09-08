@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Chart } from "react-google-charts";
 import "./ChartsMap.scss";

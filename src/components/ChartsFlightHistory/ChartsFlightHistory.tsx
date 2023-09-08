@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import ReactApexChart from "react-apexcharts";
 

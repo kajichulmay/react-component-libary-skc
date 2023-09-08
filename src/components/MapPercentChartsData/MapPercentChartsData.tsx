@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { Row, Col, Progress } from "reactstrap";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Dropdown } from "antd";
 import "./MapPercentChartsData.scss";
 import PerfectScrollbar from "react-perfect-scrollbar";

@@ -1,6 +1,8 @@
 import React from "react";
 import { Row, Col, Table } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./TableFlightHistoryData.scss";
+
 import "../../styles/custom.scss";
 
 interface ratingProps {

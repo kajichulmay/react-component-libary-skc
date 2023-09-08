@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardWidgetHeader.scss";
 import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
 import "../../styles/custom.scss";

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardDetail.scss";
 import "../../styles/custom.scss";
 interface CardDetailProps {
