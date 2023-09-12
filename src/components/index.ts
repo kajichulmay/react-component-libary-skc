@@ -5,3 +5,4 @@ export { default as ChartsMap } from "./ChartsMap";
 export { default as TableFlightHistoryData } from "./TableFlightHistoryData";
 export { default as ChartsFlightHistory } from "./ChartsFlightHistory";
 export { default as DataTables } from "./DataTables";
+export { default as SimpleDonutChart } from "./SimpleDonutChart";

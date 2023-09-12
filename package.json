@@ -1,6 +1,6 @@
 {
   "name": "react-components-library-skc",
-  "version": "0.6.0",
+  "version": "0.6.8",
   "description": "",
   "scripts": {
     "rollup": "rollup -c",
@@ -58,7 +58,8 @@
     "storybook": "^7.4.0",
     "style-loader": "^3.3.3",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "use-resize-observer": "^9.1.0"
   },
   "peerDependencies": {
     "antd": "^5.8.5",

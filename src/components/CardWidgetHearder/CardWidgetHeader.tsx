@@ -5,6 +5,7 @@ import "./CardWidgetHeader.scss";
 import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
 import "../../styles/custom.scss";
 
+import ChartsPercent from "./ChartsPercent";
 interface CardWidgetHeaderProps {
   data: { icon: string; title: string; value: number; percentage: number };
   filterType: "year" | "month" | "week";
@@ -25,8 +26,6 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
       <CardBody>
         <div className="d-flex align-items-center mb-3">
           <div className="icon">
-            {/* <span className="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18"> */}
-
             <img
               src={data?.icon ?? "https://cdn-icons-png.flaticon.com/512/1077/1077114.png"}
               alt=""
@@ -47,33 +46,29 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
           </h5>
         </div>
         <div className="text-muted mt-4">
-          <h4
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
-              fontFamily: "Inter",
-              color: "#495057",
-              // marginLeft: 48,
-            }}
-          >
-            {data?.value?.toLocaleString() ?? "-"}
-            {/* <i className="mdi mdi-chevron-up ms-1 text-success" /> */}
-            {data?.percentage > 0 ? (
-              <ChevronUp style={{ marginLeft: 8 }} color={"#34C38F"} size={16} />
-            ) : data?.percentage < 0 ? (
-              <ChevronDown style={{ marginLeft: 8 }} color={"#F46A6A"} size={16} />
-            ) : (
-              ""
-            )}
-          </h4>
-          <div
-            className="d-flex"
-            style={
-              {
-                // marginLeft: 48
-              }
-            }
-          >
+          <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+            <h4
+              style={{
+                fontSize: 24,
+                fontWeight: 700,
+                fontFamily: "Inter",
+                color: "#495057",
+                // marginLeft: 48,
+              }}
+            >
+              {data?.value?.toLocaleString() ?? "-"}
+
+              {data?.percentage > 0 ? (
+                <ChevronUp style={{ marginLeft: 8 }} color={"#34C38F"} size={16} />
+              ) : data?.percentage < 0 ? (
+                <ChevronDown style={{ marginLeft: 8 }} color={"#F46A6A"} size={16} />
+              ) : (
+                ""
+              )}
+            </h4>
+            <div>{showCharts && <ChartsPercent data={data?.percentage} />}</div>
+          </div>
+          <div className="d-flex">
             <span
               className="box-percent"
               style={{

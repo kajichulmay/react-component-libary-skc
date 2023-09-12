@@ -26,7 +26,7 @@ export const percentUp: Story = {
   args: {
     data: {
       icon: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
-      title: "จำนวนลูกค้าโดรน KUBOTA (KADs)                                       ",
+      title: "จำนวนลูกค้าโดรน KUBOTA (KADs)",
       value: 1234.56,
       percentage: 15.55,
     },
@@ -52,6 +52,18 @@ export const percentDown: Story = {
       value: 1234.56,
       percentage: -15.55,
     },
+    filterType: "week",
+  },
+};
+export const showCharts: Story = {
+  args: {
+    data: {
+      icon: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
+      title: "จำนวนลูกค้าที่ยังไม่ลงทะเบียน K-iDrone",
+      value: 1234.56,
+      percentage: 45.55,
+    },
+    showCharts: true,
     filterType: "week",
   },
 };
