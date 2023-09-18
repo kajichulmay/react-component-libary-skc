@@ -187,7 +187,7 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
               <>
                 {sortData?.map((item, index) => {
                   let percentColor = "";
-                  if (item?.prov_name_th === "ไม่ระบุ") {
+                  if (item?.prov_name_th.includes("ไม่ระบุ")) {
                     percentColor = "#D6DDE4";
                   } else if (item?.v === 0) {
                     percentColor = colorsPercent[0];
@@ -211,7 +211,7 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
                           percent={item?.percent}
                           color={percentColor}
                           unit={unit}
-                          typeNotSpecified={item?.prov_name_th === "ไม่ระบุ" ? true : false}
+                          typeNotSpecified={item?.prov_name_th.includes("ไม่ระบุ") ? true : false}
                         />
                       </Col>
                     </Row>

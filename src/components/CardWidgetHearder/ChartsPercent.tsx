@@ -12,7 +12,6 @@ const ChartsPercent = (props: ChartsPercentProps) => {
     <ReactApexChart
       options={{
         colors: [color ?? "#556EE6", "#F6F1F1"], // กำหนดสีของแต่ละชิ้น (slice) ของ Pie Chart
-        // labels: ["ระยะเวลาการฉีดพ่นของโดรนที่มีการใช้งาน"],
         tooltip: {
           enabled: false,
         },
@@ -28,7 +27,7 @@ const ChartsPercent = (props: ChartsPercentProps) => {
           },
 
           dropShadow: {
-            enabled: false,
+            enabled: true,
           },
         },
         stroke: {

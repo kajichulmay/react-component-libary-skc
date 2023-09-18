@@ -2319,3 +2319,60 @@ export const rowDataTable = {
     },
   ],
 };
+
+export const dataTableFeature = [
+  {
+    color: "#34D1E7",
+    name: "Working Route Record",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#556EE6",
+    name: "Drone Information",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#50A5F1",
+    name: "Field Management",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#9828F0",
+    name: "Drone monitoring",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#DB76FF",
+    name: "Maintanance",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#34C18E",
+    name: "Spare part",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#FE8B38",
+    name: "Chemical Calculation",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#F1B44C",
+    name: "Accounting",
+    present: 390,
+    past: 320,
+  },
+  {
+    color: "#F02870",
+    name: "Job Calendar",
+    present: 390,
+    past: 320,
+  },
+];

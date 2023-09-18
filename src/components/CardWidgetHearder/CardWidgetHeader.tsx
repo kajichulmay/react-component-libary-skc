@@ -21,6 +21,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
       style={{
         borderRadius: 8,
         boxShadow: "0px 12px 24px rgb(240, 240, 240)",
+        // height: 178,
       }}
     >
       <CardBody>
@@ -46,7 +47,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
           </h5>
         </div>
         <div className="text-muted mt-4">
-          <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <h4
               style={{
                 fontSize: 24,
@@ -66,7 +67,9 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
                 ""
               )}
             </h4>
-            <div>{showCharts && <ChartsPercent data={data?.percentage} />}</div>
+            <div style={{ position: "absolute", right: 20 }}>
+              {showCharts && <ChartsPercent data={data?.percentage} />}
+            </div>
           </div>
           <div className="d-flex">
             <span

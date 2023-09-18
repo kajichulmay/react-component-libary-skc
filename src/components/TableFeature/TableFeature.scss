@@ -1,0 +1,64 @@
+#customers {
+  font-family: "Inter";
+  width: 100%;
+  margin-top: 55px;
+}
+
+#customers td {
+  padding: 8px 0px;
+  border-bottom: #eff2f7;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &.normal {
+    font-family: "Inter";
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    width: 80px;
+  }
+
+  &.active {
+    font-family: "Inter";
+    color: #f05a28;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    width: 80px;
+  }
+}
+
+#customers tr:hover {
+  background-color: #f9f9fc;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #fff;
+  color: #495057;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  border-bottom: #eff2f7;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &.normal {
+    font-family: "Kanit";
+    color: #495057;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  &.active {
+    font-family: "Kanit";
+    color: #f05a28;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}

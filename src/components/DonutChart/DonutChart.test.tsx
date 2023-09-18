@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import SimpleDonutChart from "./SimpleDonutChart";
+import DonutChart from "./DonutChart";
 import { donutChartsColors, donutChartsLabels, donutChartsSeries } from "../../__mocks__/mockData";
 
 jest.mock("use-resize-observer", () => ({
@@ -18,8 +18,16 @@ jest.mock("react-apexcharts", () => ({
   default: () => <div></div>,
 }));
 
-describe("SimpleDonutChart Component", () => {
-  test("renders the SimpleDonutChart component", () => {
-    render(<SimpleDonutChart series={donutChartsSeries} labels={donutChartsLabels} colors={donutChartsColors} />);
+describe("DonutChart Component", () => {
+  test("renders the DonutChart component", () => {
+    render(
+      <DonutChart
+        series={donutChartsSeries}
+        labels={donutChartsLabels}
+        colors={donutChartsColors}
+        unit="ครั้ง"
+        fontStyle={{ fontSize: 16, fontFamily: "Inter" }}
+      />
+    );
   });
 });
