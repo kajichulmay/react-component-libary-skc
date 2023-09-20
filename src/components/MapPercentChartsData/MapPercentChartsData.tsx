@@ -53,7 +53,7 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
   }, []);
   useEffect(() => {
     setDataToTableBySort();
-  }, [sortTab]);
+  }, [sortTab, data]);
 
   const setDataToTableBySort = () => {
     const newDataSort: any[] = [];
