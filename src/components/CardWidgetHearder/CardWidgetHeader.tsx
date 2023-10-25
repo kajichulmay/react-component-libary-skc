@@ -7,7 +7,7 @@ import "../../styles/custom.scss";
 
 import ChartsPercent from "./ChartsPercent";
 interface CardWidgetHeaderProps {
-  data: { icon: string; title: string; value: number; percentage: number };
+  data: { icon: string; title: string; value: number; percentage: number; series?: any[] };
   filterType: "year" | "month" | "week";
   showCharts?: boolean;
   fontStyle?: { fontFamily: string; fontSize: number };
@@ -68,7 +68,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
               )}
             </h4>
             <div style={{ position: "absolute", right: 20 }}>
-              {showCharts && <ChartsPercent data={data?.percentage} />}
+              {showCharts && <ChartsPercent data={data?.series?.[0]} />}
             </div>
           </div>
           <div className="d-flex">
