@@ -68,7 +68,7 @@ function CardWidgetHeader(props: CardWidgetHeaderProps) {
               )}
             </h4>
             <div style={{ position: "absolute", right: 20 }}>
-              {showCharts && <ChartsPercent data={data?.series?.[0]} />}
+              {showCharts && <ChartsPercent data={data?.series ?? []} />}
             </div>
           </div>
           <div className="d-flex">

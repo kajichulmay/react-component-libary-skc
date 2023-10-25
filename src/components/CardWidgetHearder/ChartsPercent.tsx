@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 interface ChartsPercentProps {
-  data: number;
+  data: any[];
   color?: string;
 }
 
@@ -53,7 +53,7 @@ const ChartsPercent = (props: ChartsPercentProps) => {
           },
         },
       }}
-      series={[data, 100 - data]} // ข้อมูลสำหรับ Pie Chart
+      series={[data[0], data[1]]} // ข้อมูลสำหรับ Pie Chart
       type="pie"
       width={100}
       height="80"
