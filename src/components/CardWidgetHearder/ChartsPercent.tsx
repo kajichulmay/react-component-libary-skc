@@ -4,17 +4,21 @@ import ReactApexChart from "react-apexcharts";
 interface ChartsPercentProps {
   data: any[];
   color?: string;
+  labels: any[];
 }
 
 const ChartsPercent = (props: ChartsPercentProps) => {
-  const { data, color } = props;
+  const { data, color, labels } = props;
   return (
     <ReactApexChart
       options={{
         colors: [color ?? "#556EE6", "#F6F1F1"], // กำหนดสีของแต่ละชิ้น (slice) ของ Pie Chart
         tooltip: {
-          enabled: false,
+          enabled: true,
+          theme: "light",
+          fillSeriesColor: true,
         },
+
         dataLabels: {
           enabled: false,
           formatter: function (val, opts) {
@@ -38,8 +42,12 @@ const ChartsPercent = (props: ChartsPercentProps) => {
             formatter: function (val, index) {
               return val.toFixed(2) + "%";
             },
+            style: {
+              colors: ["red"],
+            },
           },
         },
+
         legend: {
           show: false,
         },
@@ -52,6 +60,7 @@ const ChartsPercent = (props: ChartsPercentProps) => {
             },
           },
         },
+        labels: labels,
       }}
       series={[data[0], data[1]]} // ข้อมูลสำหรับ Pie Chart
       type="pie"

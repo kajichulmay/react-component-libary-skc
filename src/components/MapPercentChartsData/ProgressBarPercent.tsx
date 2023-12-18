@@ -6,9 +6,20 @@ function ProgressBarPercent(props: any) {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
       <div className="progress-bar" style={{ background: color, width: `${percent}%` }}></div>
-      <p className="data">{data.toLocaleString()}</p>
+      <p className="data">
+        {data.toLocaleString("en-US", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2,
+        }) ?? "-"}
+      </p>
       <p className="unit">{unit ?? "-"}</p>
-      <div className={`${typeNotSpecified ? "percent-not-specified-box" : "percent-box"}`}>{percent} %</div>
+      <div className={`${typeNotSpecified ? "percent-not-specified-box" : "percent-box"}`}>
+        {percent.toLocaleString("en-US", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2,
+        }) ?? "-"}{" "}
+        %
+      </div>
     </div>
   );
 }

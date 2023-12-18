@@ -62,8 +62,10 @@ export const showCharts: Story = {
       title: "จำนวนลูกค้าที่ยังไม่ลงทะเบียน K-iDrone",
       value: 1234.56,
       percentage: 45.55,
+      labels: ["1", "2"],
+      series: [75, 25],
     },
     showCharts: true,
-    filterType: "week",
+    filterType: "dynamic",
   },
 };

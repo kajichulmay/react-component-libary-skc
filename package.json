@@ -1,6 +1,6 @@
 {
   "name": "react-components-library-skc",
-  "version": "0.7.9",
+  "version": "0.8.5",
   "description": "",
   "scripts": {
     "rollup": "rollup -c",

@@ -61,25 +61,37 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
     if (data?.length > 0) {
       if (sortTab === "0") {
         const sliceDataCountry =
-          data?.filter((item: any) => item?.prov_name_th === "ลาว" || item?.prov_name_th === "กัมพูชา") ?? [];
+          data?.filter(item => item.prov_name_th.includes("ลาว") || item.prov_name_th.includes("กัมพูชา")) ?? [];
         const sliceDataSort =
-          data?.filter((item: any) => item?.prov_name_th !== "ลาว" && item?.prov_name_th !== "กัมพูชา") ?? [];
-        newDataSort?.push(...sliceDataCountry, ...sliceDataSort);
+          data?.filter(
+            item =>
+              !item.prov_name_th.includes("ลาว") &&
+              !item.prov_name_th.includes("กัมพูชา") &&
+              !item.prov_name_th.includes("ไม่ระบุ")
+          ) ?? [];
+
+        const sliceNotSpecified = data?.filter(item => item.prov_name_th.includes("ไม่ระบุ")) ?? [];
+
+        newDataSort?.push(...sliceDataCountry, ...sliceNotSpecified, ...sliceDataSort);
         setSortData(newDataSort);
-        // sortDataMap = newDataSort;
       }
 
       if (sortTab === "1" && (country === "all" || country === "th")) {
         if (country === "all") {
-          const sliceDataCountry = data?.filter(
-            (item: any) => item?.prov_name_th === "ลาว" || item?.prov_name_th === "กัมพูชา"
-          );
-          const sliceDataSort = data?.filter(
-            (item: any) => item?.prov_name_th !== "ลาว" && item?.prov_name_th !== "กัมพูชา"
-          );
-          const sortData = [...sliceDataSort]?.sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th"));
+          const sliceDataCountry =
+            data?.filter(item => item.prov_name_th.includes("ลาว") || item.prov_name_th.includes("กัมพูชา")) ?? [];
+          const sliceDataSort =
+            data?.filter(
+              item =>
+                !item.prov_name_th.includes("ลาว") &&
+                !item.prov_name_th.includes("กัมพูชา") &&
+                !item.prov_name_th.includes("ไม่ระบุ")
+            ) ?? [];
 
-          newDataSort.push(...sliceDataCountry, ...sortData);
+          const sliceNotSpecified = data?.filter(item => item.prov_name_th.includes("ไม่ระบุ")) ?? [];
+          const sortData = [...sliceDataSort].sort((a, b) => a.prov_name_th.localeCompare(b.prov_name_th, "th")) ?? [];
+          newDataSort.push(...sliceDataCountry, ...sliceNotSpecified, ...sortData);
+
           setSortData(newDataSort);
           // sortDataMap = newDataSort;
         } else {
@@ -88,15 +100,19 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
         }
       } else if (sortTab == "2" && (country === "all" || country === "th")) {
         if (country === "all") {
-          const sliceDataCountry = data?.filter(
-            (item: any) => item?.prov_name_th === "ลาว" || item?.prov_name_th === "กัมพูชา"
-          );
-          const sliceDataSort = data?.filter(
-            (item: any) => item?.prov_name_th !== "ลาว" && item?.prov_name_th !== "กัมพูชา"
-          );
+          const sliceDataCountry =
+            data?.filter(item => item.prov_name_th.includes("ลาว") || item.prov_name_th.includes("กัมพูชา")) ?? [];
+          const sliceDataSort =
+            data?.filter(
+              item =>
+                !item.prov_name_th.includes("ลาว") &&
+                !item.prov_name_th.includes("กัมพูชา") &&
+                !item.prov_name_th.includes("ไม่ระบุ")
+            ) ?? [];
 
-          const sortDataMax = sliceDataSort.sort((a: any, b: any) => b.total - a.total);
-          newDataSort.push(...sliceDataCountry, ...sortDataMax);
+          const sliceNotSpecified = data?.filter(item => item.prov_name_th.includes("ไม่ระบุ")) ?? [];
+          const sortDataMax = sliceDataSort.sort((a, b) => b.total - a.total);
+          newDataSort.push(...sliceDataCountry, ...sliceNotSpecified, ...sortDataMax);
           setSortData(newDataSort);
           // sortDataMap = newDataSort;
         } else {
@@ -105,14 +121,20 @@ const MapPercentChartsData = (props: MapPercentChartsDataProps) => {
         }
       } else if (sortTab == "3" && (country === "all" || country === "th")) {
         if (country === "all") {
-          const sliceDataCountry = data?.filter(
-            (item: any) => item?.prov_name_th === "ลาว" || item?.prov_name_th === "กัมพูชา"
-          );
-          const sliceDataSort = data?.filter(
-            (item: any) => item?.prov_name_th !== "ลาว" && item?.prov_name_th !== "กัมพูชา"
-          );
-          const sortDataMin = sliceDataSort.sort((a: any, b: any) => a.total - b.total);
-          newDataSort.push(...sliceDataCountry, ...sortDataMin);
+          const sliceDataCountry =
+            data?.filter(item => item.prov_name_th.includes("ลาว") || item.prov_name_th.includes("กัมพูชา")) ?? [];
+          const sliceDataSort =
+            data?.filter(
+              item =>
+                !item.prov_name_th.includes("ลาว") &&
+                !item.prov_name_th.includes("กัมพูชา") &&
+                !item.prov_name_th.includes("ไม่ระบุ")
+            ) ?? [];
+
+          const sliceNotSpecified = data?.filter(item => item.prov_name_th.includes("ไม่ระบุ")) ?? [];
+          const sortDataMin = sliceDataSort.sort((a, b) => a.total - b.total);
+
+          newDataSort.push(...sliceDataCountry, ...sliceNotSpecified, ...sortDataMin);
 
           setSortData(newDataSort);
           // sortDataMap = newDataSort;
